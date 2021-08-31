@@ -1,0 +1,56 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block 'titulo' %} GAMES {%endblock%}
+
+{%block 'conteudo'%}
+ {% include 'carousel.html' %}
+<div class="container">
+    <br>
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>Aqui você encontra seus jogos favoritos!</h2>
+        <p>Se você esta procurando os jogos mais famosos e quer descobrir qual jogo esta hypado no momento, você esta no lugar certo!</p>
+    </div>
+
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    {%for dado in dados%}
+        <div class="col">
+            <div class="card text-dark bg-light mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                    {%  if dado.foto %}
+                        <img src="{{dado.foto.url}}" class="img-fluid rounded-start" style="height: 240px; width: 400px;" alt="...">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{dado.nome}}</h5>
+                    <p class="card-text">{{dado.descricao}}</p>
+                    <p class="card-text"><small class="text-muted">{{dado.dataLancamento|date:'d/m/y'}}</small></p>
+                  </div>
+                </div>
+                  <a href="#" class="btn btn-outline-dark">Mais Informações</a>
+              </div>
+            </div>
+        </div>
+    <br>
+    {% endfor %}
+    </div>
+
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Nossa Empresa é a melhor</h2>
+          <p>Somos uma nova empresa brasileira focada em vender os jogos que os brasileiros estão a procura</p>
+       <button class="btn btn-outline-light" type="button">Sobre</button>
+    </div>
+
+    <br>
+
+</div>
+{%endblock%}
+
+{%block 'scripts' %}
+
+{%endblock%}
+
