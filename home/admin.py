@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Empresa, Game
+from .models import Empresa, Game, ImagesGame
 
 class detGame(admin.ModelAdmin):
     list_display = ('id', 'nome', 'descricao', 'Genero', 'Plataforma', 'dataLançamento', 'Desenvolvedora', 'mostrar')
@@ -9,6 +9,7 @@ class detGame(admin.ModelAdmin):
 
 admin.site.register(Empresa)
 admin.site.register(Game, detGame)
+admin.site.register(ImagesGame)
 
 
 

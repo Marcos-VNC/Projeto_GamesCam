@@ -1,7 +1,8 @@
 from django.contrib import messages
+from django.core.mail.backends import console
 from django.db.models import Q
 from django.shortcuts import render, Http404, get_object_or_404, redirect
-from .models import Game, Empresa
+from .models import Game, Empresa, ImagesGame
 from django.contrib.auth.decorators import login_required
 
 
@@ -21,7 +22,9 @@ def sobre(request):
 
 def mostrarGame(request, idBusca):
     dados = get_object_or_404(Game, id=idBusca)
-    return render(request, 'home/detGame.html', {'dados':dados})
+    messages.add_message(request, messages.INFO, dados.id)
+    dadosImg = get_object_or_404(ImagesGame, id=dados.id)
+    return render(request, 'home/detGame.html', {'dados':dados, 'dadosImg':dadosImg})
 
 
 def buscar(request):
