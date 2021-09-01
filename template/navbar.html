@@ -20,16 +20,29 @@
             <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Empresas</a>
+            <a class="nav-link" href="{% url 'empresa'%}">Empresas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sobre</a>
+            <a class="nav-link" href="{% url 'sobre'%}">Sobre</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" >Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}" >Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cadastrar' %}" >Cadastrar</a>
+          </li>
+          {% endif %}
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Digite o nome do jogo" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Procurar</button>
+        {% if 'user' not in request.path %}
+        <form action="{% url 'buscar' %}" method="get" class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Buscar Game" name="buscar">
         </form>
+        {% endif %}
       </div>
     </div>
   </div>

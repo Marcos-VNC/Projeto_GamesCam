@@ -1,5 +1,8 @@
-
-<footer class="text-center text-lg-start" style="color: white; background-color: #212529 !important; bottom: 0 !important; width: 100%; heigth: 200px;">
+{% if 'user' not in request.path %}
+  <footer class="text-center text-lg-start" style="color: white; background-color: #212529 !important; bottom: 0 !important; width: 100%; heigth: 200px;">
+{% else %}
+  <footer class="text-center text-lg-start" style="color: white; background-color: #212529 !important; bottom: 0 !important; position: fixed; width: 100%; heigth: 200px;">
+{% endif %}
 
   <div class="container p-4">
     <div class="row">

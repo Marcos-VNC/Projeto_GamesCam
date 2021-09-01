@@ -1,0 +1,30 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block 'titulo' %} LOGIN {%endblock%}
+
+{%block 'conteudo'%}
+{% include 'msg.html' %}
+<br>
+<form action="{% url 'login' %}" method="post" class="container mw-400 border border-dark rounded-3 border-5" style="max-width:400px;">
+  <h2 class="mt-4 mb-4">Login</h2>
+  {% csrf_token %}
+  <div class="sm-3">
+    <label for="usuario" class="form-label">Usuário</label>
+    <input type="text" class="form-control" id="usuario" name="usuario">
+  </div>
+  <div class="mb-3">
+    <label for="senha" class="form-label">senha</label>
+    <input type="password" class="form-control" id="senha" name="senha">
+  </div>
+  <button type="submit" class="btn btn-primary">Efetuar Login</button>
+  <a class="btn btn-outline-primary" href="{% url 'cadastrar' %}" >Fazer Cadastro</a>
+  <div>
+      <br>
+  </div>
+</form>
+{% endblock %}
+
+{%block 'scripts' %}
+
+{%endblock%}

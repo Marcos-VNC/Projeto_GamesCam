@@ -1,0 +1,70 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block 'titulo' %} {{dados.nome}} {%endblock%}
+
+{%block 'conteudo'%}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'carouselImgs/img01.jpeg' %} " height="900px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'carouselImgs/img02.jpeg' %}" height="900px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'carouselImgs/img03.jpeg' %}" height="900px" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Voltar</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Avançar</span>
+  </button>
+</div>
+
+<div class="container">
+
+<div class="container marketing">
+    <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <br>
+            <h2 class="featurette-heading">{{dados.nome}}<span class="text-muted">Supreendente, não?!</span></h2>
+            <p class="lead">Genero: {{dados.Genero}}</p>
+            <p class="lead">Plataformas: {{dados.Plataforma}}</p>
+            <p class="lead">Lançamento: {{dados.dataLançamento|date:'d/m/y'}}</p>
+            <p class="lead">Desenvolvedora: {{dados.Desenvolvedora}}</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 750px; height: 500px;" src="{{dados.foto.url}}" data-holder-rendered="true">
+        </div>
+    </div>
+</div>
+
+    <br>
+
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Sobre o jogo</h2>
+          <p>{{dados.descricao}}</p>
+    </div>
+
+    <br>
+
+</div>
+{%endblock%}
+
+{%block 'scripts' %}
+
+{%endblock%}
+

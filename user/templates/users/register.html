@@ -1,0 +1,43 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block 'titulo' %} REGISTER {%endblock%}
+
+{%block 'conteudo'%}
+<br>
+<form action="{% url 'cadastrar' %}" method="post" class="container mw-400 border border-dark rounded-3 border-5" style="max-width:400px;">
+  <h2>Cadastro</h2>
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" value="{{request.POST.email}}">
+  </div>
+  <div class="mb-3">
+    <label for="usuario" class="form-label">Usuário</label>
+    <input type="text" class="form-control" id="usuario" name="usuario" value="{{request.POST.usuario}}">
+  </div>
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" name="nome" value="{{request.POST.nome}}">
+  </div>
+  <div class="mb-3">
+    <label for="sobrenome" class="form-label">Sobrenome</label>
+    <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="{{request.POST.sobrenome}}">
+  </div>
+  <div class="mb-3">
+    <label for="senha" class="form-label">senha</label>
+    <input type="password" class="form-control" id="senha" name="senha">
+  </div>
+  <div class="mb-3">
+    <label for="senha2" class="form-label">Confirmar Senha</label>
+    <input type="password" class="form-control" id="senha2" name="senha2">
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <div>
+      <br>
+  </div>
+</form>
+{% endblock %}
+
+{%block 'scripts' %}
+{%endblock%}
